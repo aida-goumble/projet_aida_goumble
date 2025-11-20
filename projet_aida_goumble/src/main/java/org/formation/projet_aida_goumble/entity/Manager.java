@@ -22,4 +22,9 @@ public class Manager {
     private String firstName;
     @OneToMany(mappedBy = "manager", cascade = CascadeType.PERSIST)
     private Set<Advisor> advisors = new HashSet<>();
+
+    public Manager(String lastName, String firstName) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+    }
 }

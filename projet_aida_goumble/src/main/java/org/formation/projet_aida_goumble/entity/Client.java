@@ -20,6 +20,16 @@ public class Client {
     private String phone;
     private String postalCode;
     private String city;
+
+    public Client(String lastName, String firstName, String address, String phone, String postalCode, String city) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.address = address;
+        this.phone = phone;
+        this.postalCode = postalCode;
+        this.city = city;
+    }
+
     @ManyToOne
     @JoinColumn(name = "advisor_id")
     private Advisor advisor;

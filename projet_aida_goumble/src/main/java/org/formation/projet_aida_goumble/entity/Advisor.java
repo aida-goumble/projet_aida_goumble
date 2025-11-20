@@ -23,4 +23,9 @@ public class Advisor {
     @ManyToOne
     @JoinColumn(name = "manager_id")
     private Manager manager;
+
+    public Advisor(String lastName, String firstName) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+    }
 }
