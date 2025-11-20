@@ -1,5 +1,6 @@
 package org.formation.projet_aida_goumble.service;
 
+import jakarta.transaction.Transactional;
 import org.formation.projet_aida_goumble.entity.Manager;
 import org.formation.projet_aida_goumble.repository.ManagerRepository;
 import org.springframework.stereotype.Service;
@@ -21,12 +22,14 @@ public class ManagerService {
     public Optional<Manager> getManagerById(Long id){
         return managerRepository.findById(id);
     }
-
-    public void saveManager(Manager manager){
+    @Transactional
+    public Manager saveManager(Manager manager){
         managerRepository.save(manager);
+        return manager;
     }
-
-    public void deleteManager(Manager manager){
+    @Transactional
+    public Manager deleteManager(Manager manager){
         managerRepository.delete(manager);
+        return manager;
     }
 }

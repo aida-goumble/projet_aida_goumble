@@ -1,5 +1,6 @@
 package org.formation.projet_aida_goumble.service;
 
+import jakarta.transaction.Transactional;
 import org.formation.projet_aida_goumble.entity.Advisor;
 import org.formation.projet_aida_goumble.repository.AdvisorRepository;
 import org.springframework.stereotype.Service;
@@ -21,11 +22,14 @@ public class AdvisorService {
         return advisorRepository.findById(id);
     }
 
-    public void saveAdvisor(Advisor advisor){
+    @Transactional
+    public Advisor saveAdvisor(Advisor advisor){
         advisorRepository.save(advisor);
+        return advisor;
     }
-
-    public void deleteAdvisor(Long id){
-        advisorRepository.deleteById(id);
+    @Transactional
+    public Advisor deleteAdvisor(Advisor advisor){
+        advisorRepository.delete(advisor);
+        return advisor;
     }
 }

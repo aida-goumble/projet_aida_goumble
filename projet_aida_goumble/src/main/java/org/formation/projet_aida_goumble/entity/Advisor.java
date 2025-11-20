@@ -20,4 +20,7 @@ public class Advisor {
     private String firstName;
     @OneToMany(mappedBy = "advisor", cascade = CascadeType.PERSIST)
     private List<Client> clients;
+    @ManyToOne
+    @JoinColumn(name = "manager_id")
+    private Manager manager;
 }

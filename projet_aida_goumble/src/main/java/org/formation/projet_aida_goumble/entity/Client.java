@@ -1,9 +1,7 @@
 package org.formation.projet_aida_goumble.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -22,5 +20,7 @@ public class Client {
     private String phone;
     private String postalCode;
     private String city;
-
+    @ManyToOne
+    @JoinColumn(name = "advisor_id")
+    private Advisor advisor;
 }
