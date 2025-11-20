@@ -21,22 +21,22 @@ public class ClientController {
     }
 
     @PostMapping("/client")
-    Client createClient(@RequestBody Client client) {
+    public Client createClient(@RequestBody Client client) {
         return clientService.saveClient(client);
     }
 
     @GetMapping("/client/{id}")
-    ResponseEntity<Client> getClient(@PathVariable Long id) {
+    public ResponseEntity<Client> getClient(@PathVariable Long id) {
         return clientService.getClientsById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
     @PutMapping("/client/{id}")
-    Client updateClient(@PathVariable Long id, @RequestBody Client client) {
+    public Client updateClient(@PathVariable Long id, @RequestBody Client client) {
 
         return clientService.updateClient(id, client);
     }
 
     @DeleteMapping("/client")
-    Client deleteClient(@RequestBody Client client) {
+    public Client deleteClient(@RequestBody Client client) {
         return clientService.deleteClient(client);
     }
 }

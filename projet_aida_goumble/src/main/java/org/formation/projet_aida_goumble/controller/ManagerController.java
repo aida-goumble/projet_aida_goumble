@@ -22,17 +22,17 @@ public class ManagerController {
     }
 
     @PostMapping("/manager")
-    Manager createManager(@RequestBody Manager manager) {
+    public Manager createManager(@RequestBody Manager manager) {
         return managerService.saveManager(manager);
     }
 
     @GetMapping("/manager/{id}")
-    ResponseEntity<Manager> getManagerById(@PathVariable Long id) {
+    public ResponseEntity<Manager> getManagerById(@PathVariable Long id) {
         return managerService.getManagerById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/manager")
-    Manager deleteManager(@RequestBody Manager manager) {
+    public Manager deleteManager(@RequestBody Manager manager) {
         return managerService.deleteManager(manager);
     }
 }

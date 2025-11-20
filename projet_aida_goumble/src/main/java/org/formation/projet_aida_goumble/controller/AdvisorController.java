@@ -21,17 +21,17 @@ public class AdvisorController {
     }
 
     @PostMapping("/advisor")
-    Advisor createClient(@RequestBody Advisor advisor) {
+    public Advisor createClient(@RequestBody Advisor advisor) {
         return advisorService.saveAdvisor(advisor);
     }
 
     @GetMapping("/advisor/{id}")
-    ResponseEntity<Advisor> getAdvisorById(@PathVariable Long id) {
+    public ResponseEntity<Advisor> getAdvisorById(@PathVariable Long id) {
         return advisorService.getAdvisorsById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/advisor")
-    Advisor deleteAdvisor(@RequestBody Advisor advisor) {
+    public Advisor deleteAdvisor(@RequestBody Advisor advisor) {
         return advisorService.deleteAdvisor(advisor);
     }
 }
